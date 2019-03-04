@@ -17,6 +17,14 @@ call plug#begin()
     " Дерево каталогов и файлов
     Plug 'scrooloose/nerdtree'
     Plug 'xuyuanp/nerdtree-git-plugin'
+    " Синтаксический анализ
+    Plug 'vim-syntastic/syntastic'
+    " Markdown предпросмотр
+    Plug 'suan/vim-instant-markdown'
+    " Автоматическое переключение раскладки при смене режимов
+    Plug 'lyokha/vim-xkbswitch' 
+    " Строка статуса
+    Plug 'vim-airline/vim-airline'
 
 call plug#end()
 " ----------------------------
@@ -45,8 +53,11 @@ set smarttab
 set expandtab
 set smartindent
 
+" Меняем leader-клавишу
+let mapleader=";"
+
 " Цветовая схема
-colorscheme vim-monokai-tasty 
+colorscheme vim-sublime-monokai
 
 " --------------------------------
 
@@ -71,6 +82,16 @@ nnoremap <C-Right> <C-W>>
 nnoremap <Tab> >>
 nnoremap <S-Tab> <<
 
+" Буферы вместо вкладок
+nmap <leader>T :enew<cr>
+nmap <leader>l :bnext<CR>
+nmap <leader>h :bprevious<CR>
+nmap <leader>bq :bp <BAR> bd #<CR>
+nmap <leader>bl :ls<CR>
+
+" Выход в нормальный режим по двойному ;;
+inoremap ;; <Esc>
+
 " --------------------------------------
 
 
@@ -86,14 +107,24 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 set shortmess+=c
 
 " Настройка NERDTree
-autocmd vimenter * NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0]
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeShowHidden = 1
 map <C-b> :NERDTreeToggle<CR>
+
+" Настройка Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Настройка Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
