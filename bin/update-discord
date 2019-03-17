@@ -1,0 +1,10 @@
+#!/usr/bin/zsh
+
+cd ~/Downloads
+wget -O discord.tar.gz https://discordapp.com/api/download\?platform\=linux\&format\=tar.gz
+rm -R /opt/discord/*
+tar --extract --file discord.tar.gz --directory /opt/discord/ --strip-components 1
+chmod +x /opt/discord/Discord
+
+rm discord.tar.gz
+
