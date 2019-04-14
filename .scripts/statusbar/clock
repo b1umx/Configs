@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+NOW_DATE=$(date '+%d.%m.%Y %H:%M')
+echo "<span color=\"#D8CF67\"> </span>${NOW_DATE}"
+
+case $BLOCK_BUTTON in
+    1) "$TERMINAL" -e "calcurse -D ~/.config/calcurse" ;;
+esac

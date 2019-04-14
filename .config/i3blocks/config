@@ -1,0 +1,21 @@
+command=~/.scripts/statusbar/$BLOCK_NAME
+separator_block_width=15
+markup=pango
+
+# Громкость
+[volume]
+interval=1
+
+# Дата и время
+[clock]
+interval=10
+
+# Кнопка выключения
+[reboot]
+full_text=<span color="#FF8B25"></span>
+interval=0
+
+# Кнопка выключения
+[poweroff]
+full_text=<span color="#D01B24"> </span>
+interval=0
