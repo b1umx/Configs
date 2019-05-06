@@ -241,12 +241,18 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="Pavucontrol"] resize set 1200 675
 for_window [class="Pavucontrol"] move position center
 
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Nm-connection-editor"] resize set 1200 675
+for_window [class="Nm-connection-editor"] move position center
+
 # Gaps settings
 gaps inner 5
 
 exec --no-startup-id compton -b
 exec --no-startup-id dunst
 exec --no-startup-id udiskie -s
+exec --no-startup-id nm-applet
+exec --no-startup-id "setxkbmap -layout us,ru -option 'grp:alt_shift_toggle'"
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id /home/zer0phase/bin/telegram
 exec --no-startup-id /home/zer0phase/bin/vk

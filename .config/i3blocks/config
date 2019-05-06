@@ -2,6 +2,10 @@ command=~/.scripts/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
+# Сетевые параметры
+[internet]
+interval=10
+
 # Громкость
 [volume]
 interval=1
@@ -9,6 +13,15 @@ interval=1
 # Дата и время
 [clock]
 interval=10
+
+# Индикатор раскладки клавиатуры
+[kbdd_layout]
+interval=persist
+
+# Кнопка меню
+[menu]
+full_text=<span color="#A7D32C"></span> Menu
+interval=0
 
 # Кнопка выключения
 [reboot]
