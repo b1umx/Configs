@@ -73,6 +73,9 @@ colorscheme vim-sublime-monokai
 nnoremap <leader>d "_d
 
 " Навигация по окнам
+nnoremap + <C-W>s
+nnoremap = <C-W>v
+nnoremap - <C-W>q
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -89,11 +92,10 @@ nnoremap <Tab> >>
 nnoremap <S-Tab> <<
 
 " Буферы вместо вкладок
-nmap <leader>T :enew<cr>
-nmap <leader>j :bnext<CR>
+nmap <F2> :enew<cr>
+nmap <leader>l :bnext<CR>
 nmap <leader>h :bprevious<CR>
-nmap <leader>bq :bp <BAR> bd #<CR>
-nmap <leader>bl :ls<CR>
+nmap <leader>q :bp <BAR> bd #<CR>
 
 " Выход в нормальный режим по двойному ;;
 inoremap ;; <Esc>
