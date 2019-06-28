@@ -37,6 +37,9 @@ call plug#end()
 " Командная оболочка
 set shell=/bin/zsh
 
+" Скрывать буферы без необходимого сохранения
+set hidden
+
 " Номера строк
 set number
 
@@ -54,7 +57,7 @@ set expandtab
 set smartindent
 
 " Меняем leader-клавишу
-let mapleader=";"
+let mapleader=","
 
 " Цветовая схема
 colorscheme vim-sublime-monokai
@@ -65,6 +68,9 @@ colorscheme vim-sublime-monokai
 
 " ===== Настройка сочетаний клавиш =====
 " --------------------------------------
+
+" Удаление без изменения буфера обмена
+nnoremap <leader>d "_d
 
 " Навигация по окнам
 nnoremap <C-J> <C-W><C-J>
@@ -84,7 +90,7 @@ nnoremap <S-Tab> <<
 
 " Буферы вместо вкладок
 nmap <leader>T :enew<cr>
-nmap <leader>l :bnext<CR>
+nmap <leader>j :bnext<CR>
 nmap <leader>h :bprevious<CR>
 nmap <leader>bq :bp <BAR> bd #<CR>
 nmap <leader>bl :ls<CR>
