@@ -1,0 +1,36 @@
+# Maintainer: Marochkin Sergey <me@ziggi.org>
+# Contributor: Dmitry Chusovitin <dchusovitin@gmail.com>
+
+pkgname='yandex-disk'
+pkgver=0.1.5.1039
+pkgrel=1
+pkgdesc='Yandex.Disk keeps your files with you at all times.'
+arch=('i686' 'x86_64')
+url='http://disk.yandex.ru/'
+license=('custom')
+depends=('glibc' 'gcc' 'gcc-libs' 'zlib')
+_arch='i386'
+[ "$CARCH" = "x86_64" ] && _arch='amd64'
+install=yandex-disk.install
+source=("http://repo.yandex.ru/yandex-disk/deb/pool/main/y/yandex-disk/yandex-disk_${pkgver}_${_arch}.deb"
+        "yandex-disk.install"
+        "yandex-disk.service")
+
+sha512sums=('7e800d95bc24ad7d1c2766af220b42427070a694ae67ffb879824c67d9dc7846c8f909b7c932d15e25d80a91cf0aedad3a7fab362c1008524b9236beb4298a29'
+            '80f0bbac853192fe12d945009c314912149ba77ba1b87354a47ff94da6df960793fd01cbd085492cb85f6db309181494508ddd78079bc3b144feb56c331c1dfe'
+            '6ebc4962b9706d504963b0e0cae7c75ef4af38fdbe8182199eadd0ca5cf4e4cf6663b91796987dd93a2a7061540f8800eeea2db2fe80e2733b43ef7a8d4c5b27')
+
+[ "$CARCH" = "x86_64" ] &&
+sha512sums=('afaa10af0b7301e8c8b01ee29af507f086315901af5141ad24b97bdecae28ff1e4860af6a528b8c029a72cb7e6ef0b58106b614fd6208957fba5366e5d20ab15'
+            '80f0bbac853192fe12d945009c314912149ba77ba1b87354a47ff94da6df960793fd01cbd085492cb85f6db309181494508ddd78079bc3b144feb56c331c1dfe'
+            '6ebc4962b9706d504963b0e0cae7c75ef4af38fdbe8182199eadd0ca5cf4e4cf6663b91796987dd93a2a7061540f8800eeea2db2fe80e2733b43ef7a8d4c5b27')
+
+package() {
+        cd $srcdir
+
+        ar x *.deb
+        bsdtar xf data.tar.gz -C $pkgdir
+
+        install -Dm644 "${srcdir}/yandex-disk.service" "${pkgdir}/usr/lib/systemd/user/yandex-disk.service"
+}
+
