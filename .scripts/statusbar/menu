@@ -1,5 +1,0 @@
-#!/bin/zsh
-
-case $BLOCK_BUTTON in
-    1) setsid rofi -show-icons -modi combi -show combi -combi-modi drun,run
-esac

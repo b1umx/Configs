@@ -1,7 +1,0 @@
-#!/bin/zsh
-
-case $BLOCK_BUTTON in
-    1) i3-nagbar -t warning \
-        -m 'Вы нажали кнопку выключения компьютера. Вы действительно хотите ВЫКЛЮЧИТЬ его?' \
-        -b 'Да, выключить' 'shutdown now' >/dev/null
-esac
