@@ -5,11 +5,16 @@
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'morhetz/gruvbox'                           " Colorscheme
-Plug 'ap/vim-buftabline'                         " Adds tabline with openned buffers
 Plug 'sheerun/vim-polyglot'                      " Better syntax highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}  " Language Server Protocol implementation
+Plug 'vim-airline/vim-airline'                   " Improved status line and top bar
+Plug 'tpope/vim-fugitive'                        " Git support
 Plug 'preservim/nerdtree'                        " File system explorer
 Plug 'Xuyuanp/nerdtree-git-plugin'               " NERDTree plugin for git support
+Plug 'ryanoasis/vim-devicons'                    " Icons for NERDTree and Airline
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'   " For colored icons
+Plug 'cdelledonne/vim-cmake'                     " Support for building CMake projects
+Plug 'jiangmiao/auto-pairs'                      " Adds automatic insertion of pair symbols
 
 call plug#end()
 
@@ -42,6 +47,7 @@ set foldmethod=syntax   " Folding method is based on syntax highlighting
 set diffopt+=vertical   " Set vertical layout for diffs by default
 set scrolloff=8         " Keeps N visible lines below the cursor after scrolling
 " set sidescrolloff=12    " The same for horizontal scrolling
+set clipboard=unnamedplus
 
 
 " ***************************
@@ -62,12 +68,25 @@ colorscheme gruvbox
 
 nnoremap <C-S> :NERDTreeToggle<CR>
 
-nnoremap <C-N> :bn<CR>
-nnoremap <C-P> :bp<CR>
-nnoremap <C-Q> :bd<CR>
+nnoremap <C-K> :bn<CR>
+nnoremap <C-J> :bp<CR>
+nnoremap <C-Q> :bp\|:bd#<CR>
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+
+" inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
+
+
+" ***************
+" Plugin settings
+" ***************
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 
 " *********
