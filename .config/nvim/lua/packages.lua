@@ -78,5 +78,9 @@ return packer.startup(function(use)
             require('Comment').setup()
         end
     }
+
+    -- Утилиты для различных языков
+    use 'mfussenegger/nvim-dap'
+    use 'Shatur/neovim-cmake'
 end)
 

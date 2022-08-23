@@ -10,4 +10,5 @@ require('plugins/nvim-lspconfig')
 require('plugins/nvim-cmp')
 require('plugins/luasnip')
 require('plugins/telescope')
+require('plugins/nvim-dap')
 

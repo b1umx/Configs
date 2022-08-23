@@ -42,3 +42,18 @@ map('n', '<leader>h', ':nohl<CR>', { noremap = true, silent = true })
 -- Управление LSP
 map('n', '<leader>e', '<CMD>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
 
+-- Управление отладчиком
+map('n', '<leader>db', '<CMD>lua require("dap").toggle_breakpoint()<CR>', { noremap = true, silent = true })
+map('n', '<leader>dn', '<CMD>lua require("dap").step_over()<CR>', { noremap = true, silent = true })
+map('n', '<leader>di', '<CMD>lua require("dap").step_into()<CR>', { noremap = true, silent = true })
+map('n', '<leader>dc', '<CMD>lua require("dap").continue()<CR>', { noremap = true, silent = true })
+
+-- Управление CMake
+map('n', '<leader>cc', ':CMake configure<CR>', { noremap = true, silent = true })
+map('n', '<leader>cb', ':CMake build<CR>', { noremap = true, silent = true })
+map('n', '<leader>cba', ':CMake build all<CR>', { noremap = true, silent = true })
+map('n', '<leader>cr', ':CMake run<CR>', { noremap = true, silent = true })
+map('n', '<leader>cd', ':CMake debug<CR>', { noremap = true, silent = true })
+map('n', '<leader>ct', ':CMake select_target<CR>', { noremap = true, silent = true })
+map('n', '<leader>cx', ':CMake cancel<CR>', { noremap = true, silent = true })
+
