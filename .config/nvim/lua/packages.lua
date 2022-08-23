@@ -59,7 +59,10 @@ return packer.startup(function(use)
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
-    use 'L3MON4D3/LuaSnip'
+    use {
+        'L3MON4D3/LuaSnip',
+        requires = { 'saadparwaiz1/cmp_luasnip' }
+    }
 
     -- Поиск
     use {

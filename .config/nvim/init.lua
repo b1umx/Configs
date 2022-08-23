@@ -8,5 +8,6 @@ require('plugins/bufferline')
 require('plugins/nvim-tree')
 require('plugins/nvim-lspconfig')
 require('plugins/nvim-cmp')
+require('plugins/luasnip')
 require('plugins/telescope')
 

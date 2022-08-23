@@ -30,11 +30,15 @@ map('n', '<A-.>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
 
 -- Поиск
 map('n', '<leader>ff', '<CMD>Telescope find_files<CR>', { noremap = true, silent = false })
-map('n', '<leader>fg', '<CMD>Telescope find_files<CR>', { noremap = true, silent = false })
-map('n', '<leader>fb', '<CMD>Telescope find_files<CR>', { noremap = true, silent = false })
-map('n', '<leader>fh', '<CMD>Telescope find_files<CR>', { noremap = true, silent = false })
+map('n', '<leader>fg', '<CMD>Telescope live_grep<CR>', { noremap = true, silent = false })
+map('n', '<leader>fb', '<CMD>Telescope buffers<CR>', { noremap = true, silent = false })
+map('n', '<leader>ft', '<CMD>Telescope help_tags<CR>', { noremap = true, silent = false })
+map('n', '<leader>fe', '<CMD>Telescope diagnostics<CR>', { noremap = true, silent = false })
 
 -- Манипуляция с интерфейсом
 map('n', '<leader>n', ':set nu! rnu!<CR>', { noremap = true, silent = true })
 map('n', '<leader>h', ':nohl<CR>', { noremap = true, silent = true })
+
+-- Управление LSP
+map('n', '<leader>e', '<CMD>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
 

@@ -5,7 +5,7 @@ local api = vim.api
 opt.mouse = 'a'
 opt.clipboard = 'unnamedplus'
 opt.swapfile = false
-opt.completeopt = 'menuone,noinsert,noselect'
+opt.completeopt = 'menu,menuone,noinsert,noselect'
 
 opt.number = true          -- Показывать номера строк
 opt.foldenable = false     -- Отлючить по умолчанию сворачивание блоков текста

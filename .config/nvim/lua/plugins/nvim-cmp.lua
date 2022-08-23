@@ -2,29 +2,40 @@ local luasnip = require('luasnip')
 local cmp = require('cmp')
 
 cmp.setup({
-    completion = {
-        autocomplete = false
-    },
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
         end
     },
-    sources = {
+    sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'nvim-lsp-signature-help' },
-        { name = 'buffer' },
+        { name = 'luasnip' },
         { name = 'path' }
-    },
-    mapping = cmp.mapping.preset.insert({
-        ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-        ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+    }, {
+        { name = 'buffer' }
+    }),
+    mapping = {
         ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-u>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true
-        }
-    })
+        ['<C-j>'] = cmp.mapping.select_next_item(),
+        ['<C-k>'] = cmp.mapping.select_prev_item(),
+        ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.confirm()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if luasnip.jumpable() then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+        ['<C-e>'] = cmp.mapping.close()
+    }
 })
 
