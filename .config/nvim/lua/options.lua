@@ -1,6 +1,6 @@
 local opt = vim.opt
 local g = vim.g
-local api = vim.api
+-- local api = vim.api
 
 opt.mouse = 'a'
 opt.clipboard = 'unnamedplus'
@@ -9,10 +9,12 @@ opt.completeopt = 'menu,menuone,noinsert,noselect'
 
 opt.number = true          -- Показывать номера строк
 opt.foldenable = false     -- Отлючить по умолчанию сворачивание блоков текста
-opt.foldmethod = 'syntax'  -- Сворачивать блоки в соответствии с синтаксисом
+opt.foldmethod = 'expr'
+opt.foldexpr = 'nvim_treesitter#foldexpr()'
 opt.colorcolumn = '120'    -- Рисовать ограничитель длины строки
 opt.splitright = true      -- Открывать вертикальные панели справа
 opt.splitbelow = true      -- Открывать горизонтальные панели снизу
+opt.equalalways = false
 opt.ignorecase = true      -- Игнорировать регистр букв при поиске
 opt.smartcase = true       -- Поиск с заглавными буквами чувствителен к регистру
 opt.wrap = false           -- Отключить перенос строк
@@ -22,7 +24,8 @@ opt.laststatus = 2         -- Всегда показывать строку с�
 opt.expandtab = true
 opt.shiftwidth = 4
 opt.tabstop = 4
-opt.smartindent = false
+opt.smartindent = true
+opt.cino = 't0,N-s,g-1'
 
 opt.hidden = true
 opt.history = 100

@@ -18,6 +18,10 @@ local i = ls.insert_node
 -- local postfix = require("luasnip.extras.postfix").postfix
 
 
+ls.config.setup({
+    history = false
+})
+
 ls.add_snippets('rust', {
     s({
         trig = 'fn',

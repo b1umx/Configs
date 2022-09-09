@@ -2,11 +2,14 @@ local bufferline = require('bufferline')
 
 bufferline.setup({
     options = {
+        close_command = "Bdelete %d",
+        right_mouse_command = "vertical sbuffer %d",
         offsets = {{
+            text_align = "left",
             filetype = 'NvimTree',
-            highlight = 'Directory',
-            padding = 1
-        }}
+            separator = true
+        }},
+        separator_style = 'slant'
     }
 })
 

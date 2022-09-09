@@ -48,7 +48,12 @@ return packer.startup(function(use)
     }
 
     -- Подсветка, редактирование и навигация по коду
-    use 'nvim-treesitter/nvim-treesitter'
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            require('nvim-treesitter.install').update({ with_sync = true })
+        end
+    }
 
     -- Коллекция конфигураций для LSP-клиента
     use 'neovim/nvim-lspconfig'
@@ -70,6 +75,7 @@ return packer.startup(function(use)
         tag = '0.1.0',
         requires = { 'nvim-lua/plenary.nvim' }
     }
+    use 'nvim-telescope/telescope-ui-select.nvim'
 
     -- Комментирование строк по сочетанию клавиш
     use {
@@ -82,5 +88,8 @@ return packer.startup(function(use)
     -- Утилиты для различных языков
     use 'mfussenegger/nvim-dap'
     use 'Shatur/neovim-cmake'
+
+    -- Конфигурация для проектов
+    use 'windwp/nvim-projectconfig'
 end)
 

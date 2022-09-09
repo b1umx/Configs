@@ -1,8 +1,12 @@
-local treesitter = require('nvim-treesitter')
+local treesitter = require('nvim-treesitter.configs')
 
-treesitter.configs.setup({
+treesitter.setup({
+    ensure_installed = { 'c', 'cpp', 'rust', 'python', 'rust' },
     auto_install = true,
-    highlight = { enable = true },
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false
+    },
     incremental_selection = {
         enable = true,
         keymaps = {

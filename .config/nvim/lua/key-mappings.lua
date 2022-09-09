@@ -8,6 +8,10 @@ map('n', '<A-k>', ':wincmd k<CR>', { noremap = true, silent = true })
 map('n', '<A-j>', ':wincmd j<CR>', { noremap = true, silent = true })
 map('n', '<A-h>', ':wincmd h<CR>', { noremap = true, silent = true })
 map('n', '<A-l>', ':wincmd l<CR>', { noremap = true, silent = true })
+map('n', '<A-[>', ':wincmd <<CR>', { noremap = true, silent = true })
+map('n', '<A-]>', ':wincmd ><CR>', { noremap = true, silent = true })
+map('n', '<A-->', ':wincmd -<CR>', { noremap = true, silent = true })
+map('n', '<A-+>', ':wincmd +<CR>', { noremap = true, silent = true })
 
 -- Открытие/закрытие боковой панели навигации
 map('n', '<leader>b', ':NvimTreeRefresh<CR>:NvimTreeToggle<CR>', { noremap = true, silent = true })
@@ -34,6 +38,7 @@ map('n', '<leader>fg', '<CMD>Telescope live_grep<CR>', { noremap = true, silent 
 map('n', '<leader>fb', '<CMD>Telescope buffers<CR>', { noremap = true, silent = false })
 map('n', '<leader>ft', '<CMD>Telescope help_tags<CR>', { noremap = true, silent = false })
 map('n', '<leader>fe', '<CMD>Telescope diagnostics<CR>', { noremap = true, silent = false })
+map('n', '<leader>fr', '<CMD>Telescope lsp_references<CR>', { noremap = true, silent = false })
 
 -- Манипуляция с интерфейсом
 map('n', '<leader>n', ':set nu! rnu!<CR>', { noremap = true, silent = true })
@@ -41,6 +46,7 @@ map('n', '<leader>h', ':nohl<CR>', { noremap = true, silent = true })
 
 -- Управление LSP
 map('n', '<leader>e', '<CMD>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
+map('n', '<leader>lq', '<CMD>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>', { noremap = true, silent = true })
 
 -- Управление отладчиком
 map('n', '<leader>db', '<CMD>lua require("dap").toggle_breakpoint()<CR>', { noremap = true, silent = true })

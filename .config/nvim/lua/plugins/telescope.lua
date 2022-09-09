@@ -5,10 +5,12 @@ telescope.setup({
     defaults = {
         mappings = {
             i = {
-                ["<Esc>"] = actions.close,
-                ["<C-u>"] = false
+                ["<C-j>"] = actions.move_selection_next,
+                ["<C-k>"] = actions.move_selection_previous
             }
         }
     }
 })
+
+telescope.load_extension("ui-select")
 
